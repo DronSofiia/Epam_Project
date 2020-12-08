@@ -1,0 +1,71 @@
+  <head>
+    <title>Flask Intro - login page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="static/bootstrap.min.css" rel="stylesheet" media="screen">
+  </head>
+  <body>
+    <div class="information">
+      <h1>Information</h1>
+        {% if head_info != None %}
+      <table>
+            <tr>
+                <th>Name:</th>
+                <td>{{ head_info.emp_name }}</td>
+            </tr>
+            <tr>
+                <th>birthday</th>
+                <td> {{head_info.birthday_date}}</td>
+            </tr>
+            <tr>
+                <th>position</th>
+                <td> {{head_info.position}}</td>
+            </tr>
+            <tr>
+                <th>salary</th>
+                <td>{{head_info.salary}}</td>
+            </tr>
+            <tr>
+                <th>department</th>
+                <td>{{head_info.departament}}</td>
+            </tr>
+
+      </table>
+        <p>Інформація про людей</p>
+
+
+            {% for i in information %}
+        <p> <a href="http://127.0.0.1:5000/info/{{i.id}} ">{{ i.emp_name }}</a></p>
+            {% endfor %}
+
+        {% elif information != None %}
+        <table>
+            <tr>
+                <th>Name:</th>
+                <td>{{information[0].emp_name }}</td>
+            </tr>
+            <tr>
+                <th>birthday</th>
+                <td> {{information[0].birthday_date}}</td>
+            </tr>
+            <tr>
+                <th>position</th>
+                <td> {{information[0].position}}</td>
+            </tr>
+            <tr>
+                <th>salary</th>
+                <td>{{information[0].salary}}</td>
+            </tr>
+            <tr>
+                <th>department</th>
+                <td>{{information[0].departament}}</td>
+            </tr>
+
+      </table>
+        {% endif %}
+
+
+
+
+    </div>
+  </body>
+</html>
