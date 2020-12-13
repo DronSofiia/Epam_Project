@@ -1,0 +1,64 @@
+{% extends "index.html" %}
+<title>Add</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="static/bootstrap.min.css" rel="stylesheet" media="screen">
+{% block content %}
+<div class="container">
+
+    <h1 style="margin-left:40%">Add employee:</h1>
+
+
+    <form action="" method="post" style="height: 80%;
+                width: 30%;
+                margin-top: 3%;
+                margin-left:40%;">
+        <table class="table">
+            <tr>
+                <th>
+                    <!--add name-->
+                    <input type="text" placeholder="Username" name="username" value="{{
+          request.form.username }}">
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <!--birthday daTE-->
+                    <input type="date" placeholder="date" name="date" value="{{
+          request.form.date }}">
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <!-- position-->
+                    <input type="text" placeholder="position" name="position" value="{{
+          request.form.position }}">
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <!-- salary-->
+                    <input type="text" placeholder="Salary" name="salary" value="{{
+          request.form.salary }}">
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <h5>Department name:</h5>
+                    <!--department-->
+                    {% for i in departmentall %}
+                    <input type="radio" name="department" value={{i.id}}>{{i.dep_name}}<Br>
+                    {% endfor %}
+                </th>
+            </tr>
+            <tr>
+                <button class="btn btn-dark" type="submit" value="Add" >Add</button>
+
+
+
+            </tr>
+        </table>
+    </form>
+
+
+</div>
+{% endblock %}

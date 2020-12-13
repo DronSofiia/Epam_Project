@@ -1,0 +1,33 @@
+  <head>
+    <title>Add</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="static/bootstrap.min.css" rel="stylesheet" media="screen">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Гзвфеу employee</h1>
+      <br>
+      <form action="" method="post">
+          <!--add name-->
+        <input type="text" placeholder="Username" name="username" value="{{employee_info.emp_name}}">
+          <!--birthday daTE-->
+         <input type="date" placeholder="date" name="date" value="{{employee_info.birthday_date }}">
+          <!-- position-->
+          <input type="text" placeholder="position" name="position" value="{{
+          employee_info.position}}">
+          <!-- salary-->
+          <input type="text" placeholder="Salary" name="salary" value="{{
+          employee_info.salary}}">
+            <!--department-->
+          <input type="text" placeholder="Department" name="department" value="{{
+          employee_info.dep_id}}">
+
+
+
+
+        <input class="btn btn-default" type="submit" value="Update">
+      </form>
+
+    </div>
+  </body>
+</html>

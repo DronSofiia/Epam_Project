@@ -1,22 +1,29 @@
-  <head>
-    <title>Flask Intro - login page</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="static/bootstrap.min.css" rel="stylesheet" media="screen">
-  </head>
-  <body>
-    <div class="container">
-      <h1>Please login</h1>
-      <br>
-      <form action="" method="post">
-        <input type="text" placeholder="Username" name="username" value="{{
-          request.form.username }}">
-         <input type="password" placeholder="Password" name="password" value="{{
-          request.form.password }}">
-        <input class="btn btn-default" type="submit" value="Login">
-      </form>
-      {% if error %}
-        <p class="error"><strong>Error:</strong> {{ error }}
-      {% endif %}
-    </div>
-  </body>
-</html>
+{% extends "index.html" %}
+
+
+{% block content %}
+
+
+<form action="" method="post" style="
+                height: 80%;
+                width: 30%;
+                margin-top: 3%;
+                margin-left:40%; ">
+    <h1>Login:</h1>
+  <div class="form-group" >
+    <label for="exampleInputEmail1">Name</label>
+    <input type="text" class="form-control"  placeholder="Username" name="username" value="{{request.form.username }}" id="exampleInputEmail1" aria-describedby="emailHelp" >
+<!--    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password" value="{{request.form.password }}">
+  </div>
+
+  <button type="submit" class="btn btn-dark" value="Login">Login </button>
+  {% if error %}
+  <small id="emailHelp" class="form-text text-muted"> {{ error }}</small>
+</form>
+
+{% endif %}
+{% endblock %}

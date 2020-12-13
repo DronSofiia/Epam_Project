@@ -1,13 +1,30 @@
-  <head>
-    <title>Flask Intro - login page</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="static/bootstrap.min.css" rel="stylesheet" media="screen">
-  </head>
-  <body>
-    <div class="information">
-      <h1>Information</h1>
-        {% if head_info != None %}
-      <table>
+{% extends "index.html" %}
+
+
+{% block content %}
+<div style="-webkit-column-width: 50%;
+height: 87%;
+                width: 30%
+    -moz-column-width: 30%;
+    column-width: 30%;
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2;
+    -webkit-column-gap: 30px;
+    -moz-column-gap: 30px;
+    column-gap: 30px;
+    -webkit-column-rule: 1px solid #ccc;
+    -moz-column-rule: 1px solid #ccc;
+    column-rule: 1px solid #ccc;">
+    {% if head_info != None %}
+    <div class="column">
+        <h1 style="margin-left:10%">Information:</h1>
+
+        <table class="table" style="
+                height: 35%;
+                width: 30%;
+                margin-top: 1%;
+                margin-left:5%;">
             <tr>
                 <th>Name:</th>
                 <td>{{ head_info.emp_name }}</td>
@@ -29,43 +46,69 @@
                 <td>{{head_info.departament}}</td>
             </tr>
 
-      </table>
-        <p>Інформація про людей</p>
-
-
-            {% for i in information %}
-        <p> <a href="http://127.0.0.1:5000/info/{{i.id}} ">{{ i.emp_name }}</a></p>
-            {% endfor %}
-
-        {% elif information != None %}
-        <table>
-            <tr>
-                <th>Name:</th>
-                <td>{{information[0].emp_name }}</td>
-            </tr>
-            <tr>
-                <th>birthday</th>
-                <td> {{information[0].birthday_date}}</td>
-            </tr>
-            <tr>
-                <th>position</th>
-                <td> {{information[0].position}}</td>
-            </tr>
-            <tr>
-                <th>salary</th>
-                <td>{{information[0].salary}}</td>
-            </tr>
-            <tr>
-                <th>department</th>
-                <td>{{information[0].departament}}</td>
-            </tr>
-
-      </table>
-        {% endif %}
-
-
-
+        </table>
 
     </div>
-  </body>
-</html>
+    <div class="column">
+        <h1>Information about employee: </h1>
+
+
+        <table class="table">
+            <tbody>
+            <tr>
+                <th scope="col">Employee</th>
+                <th scope="col">Update info</th>
+
+            </tr>
+            {% for i in information %}
+            <tr>
+                <th scope="row"><a href="http://127.0.0.1:5000/info/{{i.id}} ">{{ i.emp_name }}</a></th>
+                <td><a href="http://127.0.0.1:5000/updateinfo/{{i.id}}"> * </a></td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<div class="column">
+    {% elif information != None %}
+    <table class="table">
+        <thead>100 rows
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row">Name:</th>
+            <td>{{information[0].emp_name }}</td>
+        </tr>
+        <tr>
+            <th scope="row">birthday</th>
+            <td> {{information[0].birthday_date}}</td>
+        </tr>
+        <tr>
+            <th scope="row">position</th>
+            <td> {{information[0].position}}</td>
+        </tr>
+        <tr>
+            <th scope="row">salary</th>
+            <td>{{information[0].salary}}</td>
+        </tr>
+        <tr>
+            <th scope="row">department</th>
+            <td>{{information[0].departament}}</td>
+        </tr>
+        </tbody>
+
+    </table>
+</div>
+
+
+{% endif %}
+
+
+{% endblock %}
