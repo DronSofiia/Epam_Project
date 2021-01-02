@@ -1,0 +1,22 @@
+ {% extends "index.html" %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="static/bootstrap.min.css" rel="stylesheet" media="screen">
+ {% block content %}
+    <div class="container" style="
+height: 80%;
+                width: 30%;
+                margin-top: 3%;
+                margin-left:40%;">
+      <h1>Delete employee:</h1>
+      <br>
+      <form action="" method="post">
+            <!--all employee-->
+          {% for i in employee_info %}
+        <input type="checkbox" name=people value={{ i.id }}>{{i.emp_name}}<Br>
+            {% endfor %}
+
+        <input class="btn btn-default" type="submit" value="Delete">
+      </form>
+
+    </div>
+{% endblock %}

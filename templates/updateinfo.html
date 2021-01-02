@@ -1,0 +1,72 @@
+{% extends "index.html" %}
+<title>Add</title>
+
+{% block content %}
+
+<div class="container">
+
+    <br>
+    <form action="" method="post" style="height: 75%;
+                width: 30%;
+                margin-top: 3%;
+                margin-left:5%;">
+         <h1>Update employee:</h1>
+        <table class="table">
+            <tr>
+                <th>
+                    <div>
+                        <!--add name-->
+                        <input type="text" placeholder="Username" name="username" value="{{employee_info.emp_name}}">
+                    </div>
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <div>
+                        <!--birthday daTE-->
+                        <input type="date" placeholder="date" name="date" value="{{employee_info.birthday_date }}">
+                    </div>
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <div>
+                        <!-- position-->
+                        <input type="text" placeholder="position" name="position" value="{{
+          employee_info.position}}">
+                    </div>
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <div>
+                        <!-- salary-->
+                        <input type="text" placeholder="Salary" name="salary" value="{{
+          employee_info.salary}}">
+                    </div>
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <div>
+                        <!--department-->
+                        <input type="text" placeholder="Department" name="department" value="{{
+          employee_info.dep_id}}">
+                    </div>
+                </th>
+            </tr>
+            <tr>
+                <th>
+
+
+                    <button class="btn btn-dark" type="submit" value="Update">Update</button>
+                </th>
+            </tr>
+
+        </table>
+    </form>
+
+</div>
+
+
+{% endblock %}

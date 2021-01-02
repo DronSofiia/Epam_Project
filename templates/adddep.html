@@ -1,0 +1,56 @@
+{% extends "index.html" %}
+<title>Add</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+{% block content %}
+<div class="container" style="height: 80%;
+                width: 30%;
+                margin-top: 3%;
+                margin-left:2%;">
+    <h1>Add department:</h1>
+    <br>
+    <div>
+        <form action="" method="post">
+            <table class="table">
+                <tr>
+                    <th>
+                    <h3>Department name:</h3>
+                    {% if res.employees %}
+                    <!--add name-->
+                    <input type="text" placeholder="depname" name="depname">
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                    <!--head -->
+                    <h4> Head id:</h4>
+                    {% for i in res.employees %}
+
+                    <div class="input-group-text">
+
+                        <input type="radio" name="head" aria-label="Radio button for following text input"
+                               value={{i.id}}>
+                        {{i.emp_name}}<Br>
+                    </div>
+
+
+                    {% endfor %}
+                    </th>
+                </tr>
+            </table>
+
+            <div>
+                <button class="btn btn-dark" type="submit" value="Add">Add</button>
+            </div>
+
+
+            {% endif %}
+            <p> {{res.message}}</p>
+
+
+        </form>
+
+    </div>
+</div>
+{% endblock %}
