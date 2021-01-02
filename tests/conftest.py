@@ -3,6 +3,7 @@ from service import app
 import unittest
 import tempfile
 
+
 class FlaskrTestCase(unittest.TestCase):
 
     def setUp(self):

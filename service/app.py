@@ -155,9 +155,27 @@ def add_dep():
             depname,
             head
         )
+
+
+
+
         DB.session.add(new_dep)
         DB.session.commit()
         res.update({"message": "added dep"})
+
+
+
+        emloyee = Employee.query.filter(Employee.id == head).first()
+
+
+        emloyee.emp_name = emloyee.emp_name
+        emloyee.birthday_date = emloyee.birthday_date
+        emloyee.position = emloyee.position
+        emloyee.salary = emloyee.salary
+        emloyee.password = emloyee.password
+        emloyee.dep_id = new_dep.id
+        DB.session.commit()
+
     return render_template('adddep.html', res=res)
 
 
